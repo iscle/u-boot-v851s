@@ -394,6 +394,19 @@ config MACH_SUN8I_V3S
 	select SUPPORT_SPL
 	select ARMV7_BOOT_SEC_DEFAULT if OLD_SUNXI_KERNEL_COMPAT
 
+config MACH_SUN8I_V851S
+	bool "sun8i (Allwinner V851S)"
+	select CPU_V7A
+	select CPU_V7_HAS_NONSEC
+	select CPU_V7_HAS_VIRT
+	select ARCH_SUPPORT_PSCI
+	select SPL_ARMV7_SET_CORTEX_SMPEN
+	select SUNXI_GEN_NCAT2
+	select SUNXI_NEW_PINCTRL
+	select MMC_SUNXI_HAS_NEW_MODE
+	select SUPPORT_SPL
+	select DRAM_SUN20I_D1
+
 config MACH_SUN9I
 	bool "sun9i (Allwinner A80)"
 	select CPU_V7A
@@ -704,6 +717,7 @@ config SYS_CLK_FREQ
 	default 888000000 if MACH_SUN50I_H6
 	default 1008000000 if MACH_SUN50I_H616
 	default 1008000000 if MACH_SUN8I_R528
+	default 912000000 if MACH_SUN8I_V851S
 
 config SYS_CONFIG_NAME
 	default "suniv" if MACH_SUNIV
@@ -713,6 +727,7 @@ config SYS_CONFIG_NAME
 	default "sun7i" if MACH_SUN7I
 	default "sun8i" if MACH_SUN8I
 	default "sun8i" if MACH_SUN8I_R528
+	default "sun8i" if MACH_SUN8I_V851S
 	default "sun9i" if MACH_SUN9I
 	default "sun50i" if MACH_SUN50I
 	default "sun50i" if MACH_SUN50I_H6

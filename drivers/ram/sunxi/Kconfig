@@ -12,10 +12,15 @@ config DRAM_SUNXI_ODT_EN
 	help
 	  ODT EN value from vendor DRAM settings.
 
-config DRAM_SUNXI_TPR0
-	hex "DRAM TPR0 parameter"
+config DRAM_SUNXI_PARA1
+	hex "DRAM PARA1 parameter"
 	help
-	  TPR0 value from vendor DRAM settings.
+	  PARA1 value from vendor DRAM settings.
+
+config DRAM_SUNXI_MR1
+	hex "DRAM MR1 parameter"
+	help
+	  MR1 value from vendor DRAM settings.
 
 config DRAM_SUNXI_TPR11
 	hex "DRAM TPR11 parameter"

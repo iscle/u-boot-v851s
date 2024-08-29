@@ -606,9 +606,15 @@ static const struct sunxi_pinctrl_function sun20i_d1_pinctrl_functions[] = {
 	{ "mmc0",	2 },	/* PF0-PF5 */
 	{ "mmc1",	2 },	/* PG0-PG5 */
 	{ "mmc2",	3 },	/* PC2-PC7 */
+#if defined(CONFIG_MACH_SUN8I_V851S)
+	{ "spi0",	4 },	/* PC0-PC5 */
+#else
 	{ "spi0",	2 },	/* PC2-PC7 */
+#endif
 #if IS_ENABLED(CONFIG_UART0_PORT_F)
 	{ "uart0",	3 },	/* PF2,PF4 */
+#elif defined(CONFIG_MACH_SUN8I_V851S)
+	{ "uart0",	5 },	/* PH9,PH10 */
 #else
 	{ "uart0",	6 },	/* PB0-PB1, PB8-PB9, PE2-PE3 */
 #endif
