@@ -1,0 +1,43 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+// Copyright (C) 2022 Arm Ltd.
+
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/dts-v1/;
+
+#include "sun8i-v851s.dtsi"
+#include "sunxi-v851s-smt-pa06.dtsi"
+
+/ {
+	model = "SMT-PA06";
+	compatible = "smt,pa-06", "allwinner,sun8i-v851s";
+
+	aliases {
+		spi0 = &spi0;
+	};
+};
+
+&cpu0 {
+	cpu-supply = <&reg_vcc_core>;
+};
+
+&pio {
+	spi0_pc_pins: spi0-pc-pins {
+		pins = "PC0", "PC1", "PC2", "PC3", "PC4", "PC5";
+		function = "spi0";
+	};
+};
+
+&spi0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi0_pc_pins>;
+	status = "okay";
+
+	flash@0 {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		compatible = "winbond,w25q128", "jedec,spi-nor";
+		reg = <0>;
+		spi-max-frequency = <50000000>;
+	};
+};
